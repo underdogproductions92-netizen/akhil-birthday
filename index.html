@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Confidential File</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: black;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.section {
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button {
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background: white;
+  color: black;
+  border: none;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.visible {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+img {
+  width: 250px;
+  margin: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SECTION 1 -->
+<div id="section1" class="section visible">
+  <h1>Confidential File</h1>
+  <p>This birthday content is restricted.<br>Only certified cinematic minds may proceed.</p>
+  <button onclick="goToSection2()">I Am The Visionary</button>
+</div>
+
+<!-- SECTION 2 -->
+<div id="section2" class="section">
+  <h2>Director Verification Round</h2>
+
+  <h3>Cinema eppudu teesthunnav?</h3>
+  <button onclick="showQ1Msg()">Next month</button>
+  <button onclick="showQ1Msg()">Script ready ayyaka</button>
+  <button onclick="showQ1Msg()">Producer dorikithe</button>
+  <button onclick="showQ1Msg()">Already in pre-production (in my mind)</button>
+
+  <p id="q1msg" class="hidden">Dreams loading... Buffering since 20XX.</p>
+
+  <br><br>
+
+  <h3>Telugu industry lo Rajamouli ni minchina director avvagalige potential evariki undhi?</h3>
+  <button onclick="wrongAnswer()">Dikshith</button>
+  <button onclick="wrongAnswer()">Arunn</button>
+  <button onclick="wrongAnswer()">Anil Ravipudi</button>
+  <button onclick="correctAnswer()">Nene</button>
+
+  <p id="wrongMsg" class="hidden">Incorrect. Ambition level detected: Low.</p>
+  <p id="correctMsg" class="hidden">Confidence Verified. Access Granted.</p>
+</div>
+
+<!-- SECTION 3 -->
+<div id="section3" class="section">
+  <h2>The Only Project That Didn’t Need a Retake</h2>
+
+  <img src="photo1.jpg">
+  <p>Two overconfident filmmakers. One dream.</p>
+
+  <img src="photo2.jpg">
+  <p>No budget. No backup. No fear.</p>
+
+  <img src="photo3.jpg">
+  <p>Still building. Still believing.</p>
+
+  <p style="max-width:600px;">
+  We met on a film set. Two filmmakers pretending we knew everything.
+  Somewhere between chaos and caffeine, we built something bigger than a project.
+  Our films may still be in progress. But our journey? Solid script.
+  Happy Birthday, co-director in cinema. Brother in life.
+  </p>
+</div>
+
+<script>
+function goToSection2() {
+  document.getElementById("section1").classList.remove("visible");
+  document.getElementById("section1").classList.add("hidden");
+  document.getElementById("section2").classList.add("visible");
+}
+
+function showQ1Msg() {
+  document.getElementById("q1msg").classList.remove("hidden");
+}
+
+function wrongAnswer() {
+  document.getElementById("wrongMsg").classList.remove("hidden");
+}
+
+function correctAnswer() {
+  document.getElementById("correctMsg").classList.remove("hidden");
+  setTimeout(function() {
+    document.getElementById("section2").classList.remove("visible");
+    document.getElementById("section3").classList.add("visible");
+  }, 1500);
+}
+</script>
+
+</body>
+</html>
